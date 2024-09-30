@@ -1,0 +1,124 @@
+.navbar-container{
+    width: 100%;
+}
+
+.navbar-wrapper{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6rem;
+    position: fixed;
+    z-index: 20;
+}
+
+.navbar-wrapper nav ul{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-wrapper li .link{
+   color: black;
+   text-decoration: none;
+   font-weight: 500;
+   font-size: 1rem;
+   display: flex;
+   align-items: center;
+   z-index: 70;
+}
+
+.navbar-wrapper li .link:hover{
+    text-decoration: underline;
+}
+
+.navbar-wrapper .account-box {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.account-box svg {
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    color: #a5a5a5;
+}
+
+.account-box .account-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: aqua;
+    flex-shrink: 0;
+}
+
+.account-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.account-box .nav-btn{
+    padding: 8px 0;
+    width: 86px;
+    border-radius: 7px;
+    font-weight: 500;
+    font-family:'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    z-index: 70;
+}
+
+.account-box .login-btn{
+    background-color: #ebebeb;
+}
+
+.account-box .signup-btn{
+    background-color: #b55d51;
+    color: #fff;
+}
+
+/*----------------languages--------------*/
+
+.navbar-wrapper .languages-link{
+    position: relative;
+}
+
+.languages-link:hover .languages-container{
+  display: block;
+}
+
+.languages-link .languages-container{
+   position: absolute;
+   top: calc(100%);
+   width: 150px;
+   display: none;
+}
+
+.languages-container ul{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    background-color: #ebebeb;
+    border-radius: 8px;
+}
+
+.languages-container ul li{
+    width: 100%;
+    display: flex;
+    padding: 1.5px 3px;
+    font-weight: 500;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #a5a5a5;
+    cursor: pointer;
+}
+
+.languages-container ul li img{
+    width: 20px;
+}

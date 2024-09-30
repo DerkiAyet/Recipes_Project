@@ -1,0 +1,144 @@
+:root{
+    --main-color: #B55D51;
+    --font-color: #878787;
+    --background-color: #ebebeb;
+    --second-font-color: #a5a5a5;
+}
+
+footer{
+    width: 100%;
+    padding: 2rem 6rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+
+footer p{
+    color: var(--font-color);
+}
+
+footer .footer-flex-column{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--second-font-color);
+}
+
+.footer-flex-column .flex-container{
+    flex: 0 1 32%;
+}
+
+.about-website{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-website svg{
+    width: 70%;
+}
+
+.about-website .about{
+    font-size: 0.9rem;
+    color: var(--font-color);
+    line-height: 1.6;
+}
+
+.links-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.links-list ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.links-list ul h5{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.links-list .link{
+    color: var(--font-color);
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.links-list .link:hover,
+.login-link .link:hover{
+    text-decoration: underline;
+}
+
+.news-letter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.news-letter h2{
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.news-letter p{
+    color: var(--font-color);
+    margin-bottom: 0.2rem;
+}
+
+.news-letter .newsletter-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.newsletter-form .input-line-box{
+    background-color: #fff;
+    border: 1px solid var(--second-font-color);
+}
+
+.newsletter-form .input-line{
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 0;
+}
+
+.newsletter-form button{
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #B55D51;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.social-media-footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.8rem;
+}
+
+.social-media-footer p{
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.social-media-footer .icons-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.icons-container .footer-icon{
+    font-size: 1.7rem;
+}

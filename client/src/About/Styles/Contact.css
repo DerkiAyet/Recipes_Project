@@ -1,0 +1,179 @@
+.contact-container {
+    width: 100%;
+}
+
+.contact-container .contact-wrapper {
+    width: 100%;
+    height: 100vh;
+    padding: 1rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-wrapper .contact-box {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.contact-box .contact-line-flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.contact-line-flex .contact-img {
+    flex: 0.45;
+    height: 100%;
+    overflow: hidden;
+}
+
+.contact-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+}
+
+.contact-line-flex .contact-form {
+    flex: 0.55;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.contact-form h1 {
+    font-family: "Playfair", serif;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+}
+
+.contact-form .contact-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-container .contact-form-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid #ebebeb;
+    border-radius: 5px;
+}
+
+.contact-form-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-container form .contact-input-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid #ebebeb;
+    border-radius: 3px;
+    padding: 0 14px;
+}
+
+.contact-input-line input,
+.contact-input-line textarea {
+    width: 100%;
+    padding: 14px 10px;
+    outline: none;
+    border: 0;
+    resize: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+}
+
+.contact-input-line:nth-child(3) .input-icon {
+    align-self: flex-start;
+    margin-top: 11px;
+    font-size: 1.3rem;
+}
+
+.contact-input-line:nth-child(3) {
+    border-bottom: 0 !important;
+}
+
+.contact-input-line input::placeholder,
+.contact-input-line textarea::placeholder {
+    color: #A5A5A5;
+}
+
+.contact-input-line textarea {
+    height: 150px;
+}
+
+.contact-input-line .input-icon {
+    font-size: 1.2rem;
+    color: #A5A5A5;
+    font-weight: 300;
+}
+
+.contact-form-container .contact-refernces {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.contact-form-container form button {
+    align-self: flex-start;
+    width: 160px;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #B55D51;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    margin-top: 1.5rem;
+}
+
+.contact-refernces .refernce {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.refernce i {
+    font-size: 2.1rem;
+    align-self: flex-end;
+}
+
+.refernce .reference-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.reference-content h4{
+    font-weight: 800;
+    font-family: 'Playfair';
+    font-size: 18px;
+}
+
+.reference-content span{
+    color: #B55D51;
+    font-size: 0.8rem;
+}
+
+.contact-form .logo-box {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+}
+
+.logo-box svg{
+    height: 40px;
+    width: 130px;
+}

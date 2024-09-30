@@ -1,0 +1,327 @@
+.addrecipe-container{
+    width: 100%;
+}
+
+.addrecipe-container .addrecipe-wrapper{
+    width: 100%;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+.addrecipe-wrapper .addrecipe-form{
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.addrecipe-form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addrecipe-form form .title-line{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    border: 1.5px solid #ebebeb;
+}
+
+.title-line h1{
+    font-size: 40px;
+    font-family: 'Playfair', 'sans';
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.title-line button{
+    padding: 10px 0;
+    width: 120px;
+    border-radius: 7px;
+    font-weight: 500;
+    font-family: 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    background-color: #b55d51;
+    color: #fff;
+    margin-top: 8px;
+}
+
+.addrecipe-form form .form-body{
+    margin-top: 2.5rem;
+    width: 50%;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.form-body .recipe-title,
+.form-body .recipe-img,
+.form-body .recipe-description,
+.form-body .recipe-ingredients,
+.form-body .recipe-instructions,
+.form-body .recipe-servings,
+.form-body .recipe-cookingtime,
+.form-body .recipe-preptime,
+.form-body .recipe-cuisine{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.addrecipe-wrapper .form-body label:not(.img-box label){
+    font-size: 25px;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.addrecipe-wrapper .form-body input:not(.recipe-img input),
+.addrecipe-wrapper .form-body textarea,
+.addrecipe-wrapper .form-body select{
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 1px solid #A5A5A5;
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Roboto';
+}
+
+.addrecipe-wrapper .form-body input:focus,
+.addrecipe-wrapper .form-body select:focus{
+    border: 1.5px solid #b55d51 !important;
+}
+
+.form-body input::placeholder,
+.form-body textarea::placeholder,
+.form-body select::placeholder{
+    color: #A5A5A5;
+}
+
+.recipe-img .img-box{
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #A5A5A5;
+}
+
+.recipe-img .img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+}
+
+.recipe-img .add-photo{
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    padding: 8px 0;
+    width: 110px;
+    background-color: #fff;
+    border: 1px solid #b55d51;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-photo input{
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 100%;
+    cursor: pointer !important;
+    opacity: 0;
+}
+
+.add-photo label{
+   font-size: 0.8rem;
+   color: #b55d51;
+   font-weight: 500;
+}
+
+.recipe-img .delete-photo{
+    position: absolute;
+    bottom: 5px;
+    left: 8px;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #b55d51;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.delete-photo .recipe-icon{
+    font-size: 1.2rem;
+    color: #b55d51;
+}
+
+.form-body textarea{
+    resize: none;
+}
+
+.form-body .recipe-ingredients,
+.form-body .recipe-description{
+    margin-top: 2rem;
+}
+
+.form-body .recipe-ingredients,
+.form-body .recipe-instructions{
+    gap: 1.5rem;
+}
+
+.recipe-ingredients p,
+.recipe-instructions p,
+.recipe-servings p,
+.recipe-cookingtime p,
+.recipe-preptime p{
+    font-size: 0.95rem;
+    color: #878787;
+    line-height: 1.4;
+    word-spacing: 2px;
+    margin-top: 6px;
+}
+
+.recipe-ingredients .ingredients-container,
+.recipe-instructions .instructions-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ingredients-container .input-line,
+.instructions-container .input-line{
+    width: 100% ;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ingredients-container .input-line input,
+.instructions-container .input-line textarea{
+    width: 100%;
+}
+
+.input-line .delete-ingredient,
+.input-line .delete-instruction{
+   font-size: 1.5rem;
+   color: #878787;
+}
+
+.recipe-ingredients .add-ingredients,
+.recipe-instructions .add-instructions{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.add-ingredients button,
+.add-instructions button{
+    padding: 14px 18px;
+    border-radius: 7px;
+    font-weight: 500;
+    font-family: 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #b55d51;
+    color: #4C4C4C;
+    margin-top: 8px;
+    font-weight: 500;
+    background-color: #fff;
+}
+
+.add-ingredients .add-icon,
+.add-instructions .add-icon{
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.recipe-ingredients .header{
+    font-weight: 500;
+}
+
+.instructions-container .input-line-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.instructions-container textarea::-webkit-scrollbar{
+    display: none;
+}
+
+.instructions-container .input-line .step-img{
+    width: 120px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    align-self: flex-start;
+    position: relative;
+}
+
+.step-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.step-img input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.instructions-container textarea{
+    border: 0;
+}
+
+.instructions-container textarea:focus{
+    border: 1px solid #A5A5A5;
+}
+
+.input-cooking-line{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+
+.input-cooking-line input{
+    width: 50%;
+}
+
+.recipe-cuisine select{
+    width: 50%;
+}
+
+.input-cooking-line select {
+    color: #A5A5A5;
+}
+
+.input-cooking-line select option {
+    color: black;
+}

@@ -1,0 +1,164 @@
+.recipes-box-container{
+    width: 100%;
+}
+
+.recipes-box-container .recipes-box-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 6rem;
+}
+
+.recipes-box-wrapper .title{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.recipes-box-wrapper .title h1{
+    font-size: 50px;
+    font-family: "Playfair", serif;
+    text-transform: capitalize;
+    margin-bottom: 0.6rem;
+}
+
+.recipes-box-wrapper .title .link{
+    align-self: flex-end;
+    font-size: 1.15rem;
+    color: #B55D51;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.recipes-box-wrapper .title .link:hover{
+    text-decoration: underline;
+}
+
+.recipes-box-wrapper .recipes-cards-box{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.recipes-cards-box .recipe-card{
+    flex: 1 1 30%;
+    min-width: 270px;
+    height: 350px;
+    border-radius: 10px;
+    border: 1.5px solid #ebebeb;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.recipe-card .recipe-img{
+    flex: 0.58;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.recipe-card .recipe-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+}
+
+.recipe-img .save-box{
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  width: 38px;
+  height: 38px;
+  background-color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.recipe-card .recipe-icon{
+    font-size: 1.5rem;
+    color: #B55D51;
+}
+
+.recipe-card .recipe-infos{
+    width: 100%;
+    flex: 0.42;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    position: relative;
+    align-items: flex-start;
+}
+
+.recipe-card .stars-rating {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+}
+
+.stars-rating svg {
+    width: 16px;
+    height: 16px;
+    color: gold;
+}
+
+.stars-rating span {
+    margin-left: 5px;
+    font-size: 0.7rem;
+    color: #A5A5A5;
+}
+
+.recipe-infos h3{
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.recipe-infos .recipe-owner{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;/*-------------this help to push the div on the end of it parent div---------------*/
+}
+
+.recipe-owner .owner-line-flex{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.owner-line-flex img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.owner-line-flex .owner-name{
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+.recipe-owner .comment-box{
+    height: 35px;
+    display: flex;
+    gap: 5px;
+    border: 1px solid #ebebeb;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+.comment-box span{
+    font-size: 0.75rem;
+    color: #A5A5A5;
+}

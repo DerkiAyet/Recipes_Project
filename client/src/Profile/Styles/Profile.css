@@ -1,0 +1,256 @@
+.profile-container{
+    width: 100%;
+    margin-top: 90px;
+}
+
+.profile-container .profile-wrapper{
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.profile-wrapper form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-wrapper form .title-line{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 6rem;
+    border: 1.5px solid #ebebeb;
+}
+
+.title-line h1{
+    font-size: 40px;
+    font-family: 'Playfair', 'sans';
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.title-line button{
+    padding: 10px 1rem;
+    border-radius: 12px;
+    font-weight: 500;
+    font-family: 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    background-color: #b55d51;
+    color: #fff;
+    margin-top: 8px;
+    width: auto;
+}
+
+.profile-wrapper form .form-body{
+    width: 70%;
+    padding: 4rem 6rem;
+    min-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.profile-wrapper .form-body .user-img{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-img .img-circle{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-img .img-circle img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.user-img .img-btn{
+    padding: 10px 28px;
+    border: 1px solid #b55d51;
+    position: relative;
+    overflow: hidden;
+    background-color: #b55d51;
+    border-radius: 8px;
+}
+
+.img-btn input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+}
+
+.img-btn label{
+    font-size: 1rem;
+    color: #fff;
+}
+
+.user-img .delete-btn{
+    background-color: transparent;
+    border: 1px solid #000;
+}
+
+.delete-btn label{
+    color: #000;
+}
+
+.form-body .inputs-container{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+.inputs-container .input-flex{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 50%;
+    min-width: 50%;
+    gap: 2rem;
+}
+
+.input-flex .input-profile-line{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 6px;
+
+}
+
+.input-profile-line label{
+    font-size: 1.15rem;
+    text-transform: capitalize;
+    color: #878787;
+    text-transform: capitalize;
+}
+
+.input-profile-line .profile-input{
+    width: 100%;
+    display: flex; 
+    border-bottom: 1.5px solid #E8E8E8; 
+    padding: 10px;
+}
+
+.profile-input input{
+    width: 100%;
+    border: 0;
+    outline: none;
+    color: #878787;
+    font-size: 1.1rem;
+    margin-left: 10px;
+}
+
+.profile-input input:focus{
+    border: 0;
+    color: #000;
+}
+
+.profile-input i{
+    color: #A5A5A5;
+    font-size: 1.5rem;
+}
+
+.input-profile-line .profile-input:focus-within{
+    border-bottom: 1.5px solid #000;
+}
+
+.input-profile-line .profile-input:focus-within i{
+    color: #000;
+}
+
+.profile-wrapper .form-body .active-accounts,
+.form-body .newsletter-line{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.active-accounts h2{
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.active-accounts .account-line,
+.newsletter-line .account-line{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.8px solid #E8E8E8; 
+    color: #878787;
+}
+
+.account-line img{
+    width: 80px;
+}
+
+.newsletter-line .account-line{
+    padding-bottom: 1rem;
+}
+
+.newsletter-line button{
+    padding: 10px 0;
+    width: 140px;
+    border-radius: 7px;
+    font-weight: 500;
+    font-family: 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    font-size: 1rem;
+    border: 1.5px solid #b55d51;
+    color: #000;
+    margin-top: 8px;
+    background-color: transparent;
+}
+
+.form-body .signout-line{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signout-line .btn-line{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.btn-line i{
+    font-size: 1.4rem;
+}
+
+.signout-line button{
+    padding: 10px 0;
+    font-weight: 500;
+    font-family: 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    font-size: 1rem;
+    background-color: transparent;
+    color: #000;
+}
+
+.signout-line span{
+    font-size: 1.1rem;
+    color: #b55d51;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.signout-line span:hover{
+    text-decoration: underline;
+}

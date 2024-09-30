@@ -1,0 +1,219 @@
+.signup-container {
+    width: 100%;
+}
+
+.signup-wrapper {
+    width: 100%;
+    height: 100vh;
+    padding: 1rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-wrapper .signup-box {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.signup-box .signup-line-flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.signup-line-flex .img-box {
+    flex: 0.45;
+    height: 100%;
+    overflow: hidden;
+}
+
+.img-box img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: fill;
+    object-position: center;
+}
+
+.signup-line-flex .form-box {
+    flex: 0.55;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.signup-box .form-box h1 {
+    font-family: "Playfair", serif;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+}
+
+.form-box .form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-box .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid #ebebeb;
+    border-radius: 5px;
+}
+
+.form .input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container .input-line-box,
+.newsletter-form .input-line-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid #ebebeb;
+    border-radius: 3px;
+    padding: 0 14px;
+}
+
+.input-line-box .input-icon {
+    font-size: 1.2rem;
+    color: #A5A5A5;
+    font-weight: 300;
+}
+
+.form .input-container .input-line {
+    width: 100%;
+    padding: 14px 10px;
+    outline: none;
+    border: 0;
+}
+
+.form .input-container .input-line-box:focus-within {
+    border-bottom: 2.5px solid #B55D51;
+}
+
+.form .input-container .input-line::placeholder {
+    color: #A5A5A5;
+}
+
+.input-container:nth-child(4) .input-line-box {
+    border-bottom: 0;
+}
+
+.error {
+    margin: 0.3rem 8px 0 8px;
+    color: red;
+}
+
+.form-container .policy-terms-warning {
+    width: 100%;
+    display: flex;
+    margin: 1rem 0;
+    gap: 8px;
+}
+
+.policy-terms-warning #checkbox-input {
+    cursor: pointer;
+    color: #B55D51;
+    width: 16px;
+    height: 16px;
+}
+
+#checkbox-input:checked {
+    accent-color: #B55D51;
+    /*-------to whange the color of the checkbox*/
+}
+
+.policy-terms-warning p,
+.policy-terms-warning span {
+    color: #878787;
+    font-size: 0.8rem;
+}
+
+.policy-terms-warning span {
+    text-decoration: underline;
+}
+
+.form-container button {
+    align-self: flex-start;
+    width: 160px;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #B55D51;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.other-options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.other-options p {
+    color: #878787;
+    font-size: 0.9rem;
+}
+
+.other-options .other-options-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.signup-box .other-options-line .option {
+    width: 50%;
+    display: flex;
+    border: 1.5px solid #ebebeb;
+    border-radius: 5px;
+    padding: 0 14px;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    height: 40px;
+}
+
+:dir(rtl) .signup-box .other-options-line .option {
+    justify-content: flex-start;
+}
+
+
+
+.option svg {
+    position: absolute;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.form-box .logo-box {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+}
+
+:dir(rtl) .form-box .logo-box {
+    left: 1rem;
+    right: auto;
+}
+
+.logo-box svg {
+    height: 50px;
+    width: 150px;
+}
+
+/*----------------footer---------------*/

@@ -1,0 +1,66 @@
+.share-receipes-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.share-receipes-container .share-recipes-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    height: 60%;
+    margin: 1rem 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.share-recipes-wrapper .img-box {
+    flex: 0.4;
+    height: 100%;
+    overflow: hidden;
+}
+
+.share-recipes-wrapper .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.share-recipes-wrapper .content-box {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.share-recipes-wrapper .content-box h1 {
+    font-family: "Playfair", serif;
+    font-size: 50px;
+    text-transform: capitalize;
+}
+
+.share-recipes-wrapper .content-box p {
+    color: #878787;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.share-recipes-wrapper .content-box button {
+    padding: 10px;
+    border-radius: 7px;
+    font-weight: 500;
+    font-family: 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    background-color: #b55d51;
+    color: #fff;
+    margin-top: 8px;
+    text-transform: capitalize;
+}
