@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../Styles/Profile.css'
 import { Footer } from '../../partials/Components/Footer';
 import FacebookIcon from '../../Assets/facebook-writed.png';
@@ -6,12 +6,38 @@ import GoogleIcon from '../../Assets/google-writed.png';
 import { useNavigate } from 'react-router-dom';
 import '../../partials/Components/i18n';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
+import { AppContext } from '../../App';
+import Cookies from 'js-cookie'
 
 function Profile() {
 
     const { t } = useTranslation();
 
     const navigate = useNavigate();
+
+    const { setUserAuth } = useContext(AppContext);
+
+    const logout = (e) => {
+        e.preventDefault();
+
+        axios.defaults.withCredentials = true;
+
+        axios.post('http://localhost:3001/auth/logout', {})
+            .then(() => {
+                setUserAuth({
+                    userName: '',
+                    fullName: '',
+                    userImg: null,
+                    state: false
+                })
+
+                Cookies.remove('accessToken');
+
+                navigate('/')
+            })
+            .catch((err) => console.error(err))
+    }
 
     return (
         <div className='profile-container'>
@@ -22,6 +48,12 @@ function Profile() {
                             {t('profileTitle')}
                         </h1>
                         <div className="profile-btns" style={{ display: 'flex', gap: '1rem' }}>
+                            <button
+                                style={{ backgroundColor: 'transparent', color: '#000', border: '2px solid #B55D51', boxShadow: 'none', textTransform: 'capitalize' }}
+                                onClick={() => navigate('/profile/my-recipes')}
+                            >
+                                {t('myRecipes')}
+                            </button>
                             <button
                                 style={{ backgroundColor: 'transparent', color: '#000', border: '2px solid #B55D51', boxShadow: 'none', textTransform: 'capitalize' }}
                                 onClick={() => navigate('/favorites')}
@@ -65,7 +97,7 @@ function Profile() {
                                             name="fullName"
                                             id="fullName"
                                             autoComplete="off"
-                                            placeholder={t('saveChanges')}
+                                            placeholder={t('fullName')}
                                         />
                                     </div>
                                 </div>
@@ -147,7 +179,7 @@ function Profile() {
                         <div className="signout-line">
                             <div className="btn-line">
                                 <i class="ri-logout-box-line"></i>
-                                <button style={{ textTransform: 'capitalize' }}>
+                                <button style={{ textTransform: 'capitalize' }} onClick={(e) => logout(e)}>
                                     {t('signOut')}
                                 </button>
                             </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../Styles/Login.css';
 import AuthenticationImg from '../../Assets/authentication_img2.png';
 import { Formik, Form, Field } from 'formik';
@@ -6,10 +6,12 @@ import * as Yup from 'yup';
 import { ReactComponent as GoogleSvg } from '../../Assets/google.svg'
 import { ReactComponent as FacebookSvg } from '../../Assets/facebook.svg';
 import { ReactComponent as LogoSvg } from '../../Assets/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../../partials/Components/Footer';
 import '../../partials/Components/i18n'
 import { useTranslation, Trans } from "react-i18next";
+import axios from 'axios'
+import { AppContext } from '../../App';
 
 
 function Login() {
@@ -26,15 +28,30 @@ function Login() {
         password: Yup.string().min(6, 'Password must be at least 6 characters long').required('Password is a required field'),
     });
 
+    const { setUserAuth } = useContext(AppContext);
+
+    const navigate = useNavigate();
+
+    axios.defaults.withCredentials = true;
     const onSubmit = (data) => {
-        console.log(data);
+
+        axios.post('http://localhost:3001/auth/login', data)
+            .then((res) => {
+                setUserAuth({
+                    userName: res.data.userName,
+                    fullName: res.data.fullName,
+                    userImg: res.data.userImg,
+                    state: true
+                })
+                navigate('/')
+            })
+            .catch((err) => console.err(err.response.data))  
+
     };
 
     const getFirstError = (errors, touched) => {
-        if (errors.userName && touched.userName) return errors.userName;
         if (errors.email && touched.email) return errors.email;
         if (errors.password && touched.password) return errors.password;
-        if (errors.confirmPassword && touched.confirmPassword) return errors.confirmPassword;
         return null;
     };
 

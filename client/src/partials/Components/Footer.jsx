@@ -30,12 +30,12 @@ export const Footer = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to={'/'} className='link'>
+                            <Link to={'/recipes'} className='link'>
                                 {t('navRecipes')}
                             </Link>
                         </li>
                         <li>
-                            <Link to={'/'} className='link'>
+                            <Link to={'/add-recipe'} className='link'>
                                 {t('navAdd')}
                             </Link>
                         </li>
@@ -45,17 +45,19 @@ export const Footer = () => {
                             {t('quickLinks')}
                         </h5>
                         <li>
-                            <Link to={'/'} className='link'>
+                            <Link to={'/about'} className='link'>
                                 {t('aboutNav')}
                             </Link>
                         </li>
                         <li>
-                            <Link to={'/'} className='link'>
+                            <Link to={'/add-recipe'} className='link'>
                                 {t('shareRecipes')}
                             </Link>
                         </li>
-                        <li className='link'>
-                            {t('contactNav')}
+                        <li>
+                            <Link to={'/contact'} className='link'>
+                                {t('contactNav')}
+                            </Link>
                         </li>
                     </ul>
                     <ul>

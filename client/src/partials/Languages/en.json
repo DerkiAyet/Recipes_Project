@@ -127,5 +127,6 @@
     "connect": "connect",
     "signOut": "sign out",
     "deleteAccount": "delete account",
-    "favoritesTitle": "favorites"
+    "favoritesTitle": "favorites",
+    "myRecipes": "My Recipes"
 }

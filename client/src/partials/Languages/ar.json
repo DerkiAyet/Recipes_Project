@@ -127,5 +127,6 @@
     "connect": "متصل",
     "signOut": "تسجيل الخروج",
     "deleteAccount": "حذف الحساب",
-    "favoritesTitle": "الوصفات المفضلة"
+    "favoritesTitle": "الوصفات المفضلة",
+    "myRecipes": "وصفاتي"
 }

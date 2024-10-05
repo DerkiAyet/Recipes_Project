@@ -14,14 +14,12 @@ import Favorites from './Profile/Components/Favorites';
 import Contact from './About/Components/Contact';
 import cookies from 'js-cookie'
 import i18n from './partials/Components/i18n';
+import axios from 'axios';
+import MyRecipes from './Profile/Components/MyRecipes';
 
 export const AppContext = createContext();
 
 function App() {
-
-  const [userAuth, setUserAuth] = useState({
-    state: false
-  })
 
   const [lang, setLang] = useState(cookies.get('i18next') || 'en');
 
@@ -35,8 +33,74 @@ function App() {
     setIsRtl(document.documentElement.dir === "rtl");
   }, []);
 
+  const [userAuth, setUserAuth] = useState({
+    userName: '',
+    fullName: '',
+    userImg: null,
+    state: false
+  })
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+
+    axios.defaults.withCredentials = true;
+    axios.get('http://localhost:3001/auth/verify')
+      .then((res) => {
+        setUserAuth({
+          userName: res.data.userName,
+          fullName: res.data.fullName,
+          userImg: res.data.userImg,
+          state: true
+        })
+      })
+      .catch((err) => {
+        console.error(err.response.data)
+        setUserAuth(prevState => ({
+          ...prevState,
+          state: false
+        }));
+      })
+      .finally(() => setLoading(false))
+
+  }, [])
+
+  const [recipes, setRecipes] = useState([])
+
+  useEffect(() => {
+
+    axios.get('http://localhost:3001/recipes')
+    .then((res) => setRecipes(res.data))
+    .catch((err) => console.error(err.response.data))
+
+  }, [])
+
+  const [ ratings, setRatings ] = useState([])
+
+  useEffect(() => {
+
+    axios.defaults.withCredentials = true;
+
+    axios.get('http://localhost:3001/ratings/userRatings')
+    .then((res) => setRatings(res.data))
+    .catch((err) => console.error(err.response.data))
+
+  }, [userAuth.state])
+
+  const [ savings, setSavings ] = useState([]);
+
+  useEffect(() => {
+
+    axios.defaults.withCredentials = true;
+
+    axios.get('http://localhost:3001/savings/savedRecipes')
+    .then((res) => setSavings(res.data))
+    .catch((err) => console.error(err.response.data))
+
+  }, [userAuth.state])
+
   return (
-    <AppContext.Provider value={{ userAuth, setUserAuth, setLang, isRtl, setIsRtl }}>
+    <AppContext.Provider value={{ userAuth, setUserAuth, setLang, isRtl, setIsRtl, loading, recipes, setRecipes, ratings, setRatings, savings, setSavings }}>
       <div className="App">
         <Router>
           <Routes>
@@ -51,6 +115,7 @@ function App() {
               <Route path='recipes' Component={Recipes} />
               <Route path='recipes/:id' Component={Recipe} />
               <Route path='favorites' Component={Favorites} />
+              <Route path='profile/my-recipes' Component={MyRecipes} />
               <Route path='about' Component={About} />
             </Route>
           </Routes>

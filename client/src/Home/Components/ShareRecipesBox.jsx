@@ -3,10 +3,13 @@ import ShareImg from '../../Assets/share-recipe.jpeg';
 import '../Styles/ShareRecipesBox.css'
 import '../../partials/Components/i18n'
 import { useTranslation } from "react-i18next";
+import { useNavigate } from 'react-router-dom';
 
 export const ShareRecipesBox = () => {
 
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
 
   return (
 
@@ -24,7 +27,7 @@ export const ShareRecipesBox = () => {
           <p>
             {t('shareContent')}
           </p>
-          <button>
+          <button onClick={() => navigate('/add-recipe')}>
             {t('shareBtn')}
           </button>
         </div>

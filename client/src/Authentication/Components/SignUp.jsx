@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../Styles/SignUp.css';
 import AuthenticationImg from '../../Assets/authentication_img.png';
 import { Formik, Form, Field } from 'formik';
@@ -6,10 +6,12 @@ import * as Yup from 'yup';
 import { ReactComponent as GoogleSvg } from '../../Assets/google.svg'
 import { ReactComponent as FacebookSvg } from '../../Assets/facebook.svg';
 import { ReactComponent as LogoSvg } from '../../Assets/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Footer } from '../../partials/Components/Footer';
 import '../../partials/Components/i18n'
 import { useTranslation, Trans } from "react-i18next";
+import axios from 'axios'
+import { AppContext } from '../../App';
 
 function SignUp() {
 
@@ -29,8 +31,31 @@ function SignUp() {
         confirmPassword: Yup.string().min(6, 'Password must be at least 6 characters long').required('Please confirm your password')
     });
 
+    const { setUserAuth } = useContext(AppContext);
+
+    const navigate = useNavigate();
+    
+    axios.defaults.withCredentials = true;
     const onSubmit = (data) => {
-        console.log(data);
+        if (data.password === data.confirmPassword) {
+            axios.post('http://localhost:3001/auth/register', {
+                userName: data.userName,
+                email: data.email,
+                password: data.password
+            })
+                .then((res) => {
+                    setUserAuth({
+                        userName: res.data.userName,
+                        fullName: res.data.fullName,
+                        userImg: res.data.userImg,
+                        state: true
+                    })
+                    navigate('/')
+                })
+                .catch((err) => console.err(err.response.data))
+        } else {
+            alert('passwords non identical')
+        }
     };
 
     const getFirstError = (errors, touched) => {

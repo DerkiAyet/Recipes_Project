@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../Styles/HomePage.css';
 import VectorImg from '../../Assets/vector_color.png';
 import { IntroBox } from './IntroBox';
@@ -7,10 +7,13 @@ import { ShareRecipesBox } from './ShareRecipesBox';
 import { RecipesBox } from './RecipesBox';
 import '../../partials/Components/i18n'
 import { useTranslation } from "react-i18next";
+import { AppContext } from '../../App';
 
 function HomePage() {
 
   const { t } = useTranslation();
+
+  const { userAuth, recipes = [] } = useContext(AppContext);
 
   return (
     <div className='homepage-container'>
@@ -19,12 +22,20 @@ function HomePage() {
           <img src={VectorImg} alt="logo" />
         </div>
         <div className="decoration" style={{ marginTop: '90px' }} />
-        <IntroBox />
+        {
+          !userAuth.state && <IntroBox />
+        }
         <ShareRecipesBox />
       </div>
-      <RecipesBox title={t('trendingRecipes')} />
+      <RecipesBox
+        title={t('trendingRecipes')}
+        listOfRecipes={recipes}
+      />
       <NewsLetterBox />
-      <RecipesBox title={t('exploreRecipe')} />
+      <RecipesBox
+        title={t('exploreRecipe')}
+        listOfRecipes={recipes}
+      />
       <Footer />
     </div>
   )

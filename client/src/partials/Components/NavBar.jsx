@@ -39,7 +39,7 @@ function NavBar() {
 
     //----------------changing language------------------
 
-    const { setLang, setIsRtl, isRtl } = useContext(AppContext);
+    const { setLang, setIsRtl } = useContext(AppContext);
 
     const { t, i18n } = useTranslation();
 
@@ -116,15 +116,17 @@ function NavBar() {
                     {
                         userAuth.state ?
                             <>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="size-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="size-6" style={{ cursor: 'pointer' }} onClick={() => navigate('/recipes')}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                                 </svg>
 
                                 <div className="account-img">
                                     <img
-                                        src=""
+                                        src={ userAuth.userImg ?  `http://localhost:3001/uploads/${userAuth.userImg}` : '/default_picture.jpeg' }
                                         alt=""
                                         id="account-img"
+                                        onClick={() => navigate('/profile')}
+                                        style={{ cursor: 'pointer' }}
                                     />
                                 </div>
                             </>

@@ -44,7 +44,7 @@
 }
 
 .recipes-cards-box .recipe-card{
-    flex: 1 1 30%;
+    flex: 0 1 30%;
     min-width: 270px;
     height: 350px;
     border-radius: 10px;
@@ -66,6 +66,7 @@
     height: 100%;
     object-fit: fill;
     object-position: center;
+    cursor: pointer;
 }
 
 .recipe-img .save-box{
@@ -119,6 +120,10 @@
     font-size: 21px;
     font-weight: 500;
     margin-top: 1rem;
+}
+
+.recipe-infos h3:hover{
+    text-decoration: underline;
 }
 
 .recipe-infos .recipe-owner{

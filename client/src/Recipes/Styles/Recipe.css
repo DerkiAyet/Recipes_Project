@@ -119,15 +119,15 @@
 
 .recipe-img-box .description{
     line-height: 1.6;
-    width: 70%;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     word-spacing: 2px;
+    font-weight: 500;
+    margin-top: 1rem;
 }
 
 .recipe-img-box .recipe-img{
     width: 100%;
-    height: 580px;
-    background-color: #B55D51;
+    height: 600px;
     border-radius: 15px;
     overflow: hidden;
 }
@@ -178,6 +178,7 @@
     padding: 4px 2rem;
     border-right: 2px solid #A5A5A580;
     gap: 0.4rem;
+    align-items: center;
 }
 
 .recipe-time .time-box:nth-child(3){
@@ -457,6 +458,11 @@
     flex-direction: column;
 }
 
+.comment-review-form .rating-stars{
+    display: flex;
+    gap: 1rem;
+}
+
 .comment-review-form h2{
     margin-bottom: 0;
 }
@@ -489,7 +495,8 @@
     display: none;
 }
 
-.comment-review-form form button{
+.comment-review-form form button,
+.comment-review-form .rating-stars button{
     padding: 8px 15px;
     font-size: 1.1rem;
     border-radius: 10px;

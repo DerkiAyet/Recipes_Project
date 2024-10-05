@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react';
 import '../Styles/AddRecipe.css';
 import { Footer } from '../../partials/Components/Footer';
 import AddPhoto from '../../Assets/authentication_img.png';
-import CameraIcon from '../../Assets/camera-icon.jpeg';
 import '../../partials/Components/i18n'
 import { useTranslation } from "react-i18next";
+import axios from 'axios';
 
 function AddRecipe() {
 
@@ -28,8 +28,8 @@ function AddRecipe() {
 
     const [recipe, setRecipe] = useState({
         title: "",
-        recipeImg: "",
         description: "",
+        recipeImg: "",
         ingredients: [],
         steps: [],
         servings: 0,
@@ -92,7 +92,7 @@ function AddRecipe() {
     const handleChange = (e, index) => {
         const { value } = e.target;
         const newSteps = recipe.steps;
-        newSteps[index].step = value;
+        newSteps[index] = value;
         setRecipe({ ...recipe, steps: newSteps })
 
         if (textareaRefs.current[index]) {
@@ -103,8 +103,7 @@ function AddRecipe() {
 
     const addStep = (e) => {
         e.preventDefault();
-        setRecipe({ ...recipe, steps: [...recipe.steps, { stepImg: null, step: "" }] })
-        setStepImages([...stepImages, { urlImg: null }]);
+        setRecipe({ ...recipe, steps: [...recipe.steps, "" ] })
         textareaRefs.current = [...textareaRefs.current, React.createRef()];
     }
 
@@ -112,26 +111,6 @@ function AddRecipe() {
         const updatedSteps = recipe.steps.filter((_, i) => i !== index);
         setRecipe({ ...recipe, steps: updatedSteps })
     }
-
-    //----------------the step image handler---------------
-
-    const [stepImages, setStepImages] = useState([])
-
-    const handleStepImageChange = (e, index) => {
-        const file = e.target.files[0];
-        if (file) {
-            const updatedSteps = recipe.steps;
-            updatedSteps[index].stepImg = file;
-            setRecipe({ ...recipe, steps: updatedSteps })
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                const updatedSteps = [...stepImages];
-                updatedSteps[index].urlImg = reader.result;
-                setStepImages(updatedSteps);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
 
     //--------------------Cuisine types--------------
 
@@ -147,11 +126,51 @@ function AddRecipe() {
         "Dairy-Based", "Egg-Based", "Desserts", "Fermented (Kimchi, miso...)", "Sauce-Based"
     ]
 
+    //----------------------OnSubmit--------------------------
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append('title', recipe.title);
+        formData.append('description', recipe.description);
+        formData.append('recipeImg', recipe.recipeImg);
+        formData.append('ingredients', JSON.stringify(recipe.ingredients));
+        formData.append('instructions', JSON.stringify(recipe.steps))
+        formData.append('servings', recipe.servings)
+        formData.append('cookTime', JSON.stringify(recipe.cookingTime));
+        formData.append('prepTime', JSON.stringify(recipe.prepTime));
+        formData.append('cuisine', recipe.cuisine);
+        formData.append('collection', recipe.collection);
+        formData.append('mainIngredient', recipe.mainIngredient);
+
+        axios.defaults.withCredentials = true;
+
+        axios.post('http://localhost:3001/recipes/addRecipe', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .then((res) => {
+                alert('Recipe created');
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.error(err);
+                alert('Error while creating recipe');
+            });
+
+            console.log(recipe.steps)
+            console.log(recipe.ingredients)
+    };
+
+
     return (
         <div className='addrecipe-container'>
             <div className="addrecipe-wrapper">
                 <div className="addrecipe-form">
-                    <form>
+                    <form onSubmit={onSubmit}>
                         <div className="title-line">
                             <h1>
                                 {t('shareBtn')}
@@ -297,19 +316,11 @@ function AddRecipe() {
                                                     {t('step')} {index + 1}
                                                 </label>
                                                 <div className="input-line">
-                                                    <div className="step-img">
-                                                        <img src={stepImages[index].urlImg || CameraIcon} alt="" />
-                                                        <input
-                                                            type="file"
-                                                            onChange={(e) => handleStepImageChange(e, index)}
-                                                            accept="image/*"
-                                                        />
-                                                    </div>
                                                     <textarea
                                                         ref={(el) => textareaRefs.current[index] = el} // Assign ref dynamically
                                                         type="text"
                                                         placeholder={t('stepPlacholder')}
-                                                        value={element.step}
+                                                        value={element}
                                                         onChange={(e) => handleChange(e, index)}
                                                     />
                                                     <i
@@ -363,7 +374,7 @@ function AddRecipe() {
                                         min={0}
                                         placeholder='Hours 0'
                                         autoComplete='off'
-                                        value={recipe.cookingTime}
+                                        value={recipe.cookingTime.hours}
                                         onChange={(e) => setRecipe({ ...recipe, cookingTime: { ...recipe.cookingTime, hours: e.target.value } })}
                                         required
                                     />
@@ -375,7 +386,7 @@ function AddRecipe() {
                                         max={59}
                                         placeholder='Minutes 0'
                                         autoComplete='off'
-                                        value={recipe.cookingTime}
+                                        value={recipe.cookingTime.minutes}
                                         required
                                         onChange={(e) => setRecipe({ ...recipe, cookingTime: { ...recipe.cookingTime, minutes: e.target.value } })}
                                     />
@@ -398,7 +409,7 @@ function AddRecipe() {
                                         min={0}
                                         placeholder='Hours 0'
                                         autoComplete='off'
-                                        value={recipe.prepTime}
+                                        value={recipe.prepTime.hours}
                                         onChange={(e) => setRecipe({ ...recipe, prepTime: { ...recipe.prepTime, hours: e.target.value } })}
                                         required
                                     />
@@ -410,7 +421,7 @@ function AddRecipe() {
                                         max={59}
                                         placeholder='Minutes 0'
                                         autoComplete='off'
-                                        value={recipe.prepTime}
+                                        value={recipe.prepTime.minutes}
                                         required
                                         onChange={(e) => setRecipe({ ...recipe, prepTime: { ...recipe.prepTime, minutes: e.target.value } })}
                                     />

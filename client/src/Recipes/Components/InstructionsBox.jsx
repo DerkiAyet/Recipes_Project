@@ -1,9 +1,8 @@
 import React from "react";
-import AuthenticationImg from '../../Assets/authentication_img.png';
 import '../../partials/Components/i18n'
 import { useTranslation } from "react-i18next";
 
-export const InstructionsBox = () => {
+export const InstructionsBox = ({ instructions = [] }) => {
 
     const { t } = useTranslation();
 
@@ -13,32 +12,38 @@ export const InstructionsBox = () => {
                 {t('instructions')}:
             </h2>
 
-            <Instruction />
-            <Instruction />
+            {
+                instructions.map((instruction, index) => (
+                    <Instruction
+                        number={index + 1}
+                        stepContent={instruction}
+                    />
+                ))
+            }
         </div>
     )
 }
 
-const Instruction = () => {
+const Instruction = ({ number, stepContent }) => {
 
     const { t } = useTranslation();
+
+    const textWithLineBreaks = (text) => {
+        return text.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+                {line}
+                <br />
+            </React.Fragment>
+        ));
+    };
 
     return (
         <div className="step">
             <h4 style={{ fontSize: "24px", marginBottom: '12px', textTransform: 'capitalize' }} className='header'>
-                {t('step')} 1
+                {t('step')} { number }
             </h4>
-            <div className="step-img">
-                <img src={AuthenticationImg} alt="" />
-            </div>
-            <p className="instruction" style={{ color: "#000" }}>
-                The rain tapped softly against the window,
-                creating a soothing rhythm that filled the quiet room.
-                Outside, the streets glistened under the streetlights,
-                their surfaces shimmering with the fresh rain.
-                It was one of those peaceful nights when time seemed to slow,
-                and the world felt distant, allowing a moment of stillness to settle in.
-                Inside, a cup of tea steamed gently, adding warmth to the calm atmosphere.
+            <p className="instruction" style={{ color: "#000", fontSize: "18px", marginLeft: "10px" }}>
+                { textWithLineBreaks(stepContent || "") }
             </p>
         </div>
     )
