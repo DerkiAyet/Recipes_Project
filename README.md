@@ -36,6 +36,7 @@ cd Recipes_Project
 cd server
 npm install
 cp .env     # fill in your values
+mkdir -p uploads/recipes uploads/profiles   # folders used by multer for uploads
 npm start
 
 # Frontend (in a new terminal)
