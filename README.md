@@ -48,7 +48,8 @@ npm start
 
 ```env
 MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret
+ACCESS_KEY = your_AccessToken_secretKey
+REFRESH_KEY = your_RefreshToken_secretKey
 PORT=5000
 ```
 
