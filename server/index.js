@@ -30,10 +30,10 @@ app.use('/comments', commentsRouter)
 const savingsRouter = require('./routes/Savings')
 app.use('/savings', savingsRouter)
 
-mongoose.connect(
-    `mongodb+srv://halimaderki399:${process.env.MONGODB_PASSWORD}@cluster0.hvaoj.mongodb.net/recipes_bd?retryWrites=true&w=majority&appName=Cluster0`
-);
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.error("MongoDB connection error:", err));
 
-app.listen(process.env.PORT || 3001, () => {
-    console.log(`Server runs on port ${process.env.PORT || 3001}`);
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`Server runs on port ${process.env.PORT || 5000}`);
 })
